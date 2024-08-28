@@ -1836,7 +1836,7 @@
       #
       # ===== Nuclio FaaS ========
       #
-      NUCLIO_enable: true
+      NUCLIO_enable: false
       NUCLIO_map_tmp_folder: false
       #
       # ===== MQTT Mosquitto ========

@@ -726,25 +726,6 @@ services:
       - ./data-transfer:/data-transfer
       - ./conf/cloudbeaver/data-sources.json:/opt/cloudbeaver/workspace/GlobalConfiguration/.dbeaver/data-sources.json
     restart: unless-stopped
-  #  ================================== Nuclio Dashboard ========================================== #
-  nuclio:
-    image: quay.io/nuclio/dashboard:stable-amd64
-    container_name: nuclio
-    hostname: nuclio
-    labels:
-      com.platys.name: nuclio
-      com.platys.description: Serverless event and data processing platform
-      com.platys.webui.title: Nuclio Dashboard UI
-      com.platys.webui.url: http://dataplatform:8070
-    ports:
-      - 8070:8070
-    environment:
-      - NUCLIO_CHECK_FUNCTION_CONTAINERS_HEALTHINESS=true
-      - NUCLIO_DASHBOARD_DEFAULT_FUNCTION_MOUNT_MODE=volume
-    volumes:
-      - ./data-transfer:/data-transfer
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
   #  ================================== Active MQ ========================================== #
   activemq:
     image: apache/activemq-artemis:2.30.0
